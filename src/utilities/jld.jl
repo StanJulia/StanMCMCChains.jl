@@ -1,6 +1,6 @@
-using FileIO, JLD, MCMCChain
+using FileIO, JLD, MCMCChains
 
-function jldsave(filepath::AbstractString, chains::MCMCChain.Chains)
+function jldsave(filepath::AbstractString, chains::MCMCChains.Chains)
   println("Entering save")
   open(filepath, "w") do s
       # Don't forget to write the magic bytes!
@@ -20,7 +20,7 @@ function jldload(filepath::AbstractString)
     skipmagic(s)  # skip over the magic bytes
     d = JLD.load(filepath)
   end
- MCMCChain.Chains(d["values"], names=d["names"], chains=d["chains"],
+ MCMCChains.Chains(d["values"], names=d["names"], chains=d["chains"],
     start=first(d["range"]), thin=step(d["range"]))
 end
 

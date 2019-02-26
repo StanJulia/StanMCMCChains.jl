@@ -1,7 +1,7 @@
-using StatisticalRethinking, CmdStan, MCMCChain
+using StatisticalRethinking, CmdStan, MCMCChains
 gr(size=(500,500));
 
-ProjDir = rel_path("..", "scripts", "04")
+ProjDir = @__DIR__
 cd(ProjDir)
 
 howell1 = CSV.read(rel_path("..", "data", "Howell1.csv"), delim=';')

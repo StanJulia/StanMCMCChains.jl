@@ -1,17 +1,20 @@
 # Top level test script for Stan.jl
-using CmdStan, StanMCMCChain, Test, Statistics
+using CmdStan, StanMCMCChains, Test, Statistics
 
-println("\nRunning tests for StanMCMCChain-j1.0-v4.0.1:\n")
+println("\nRunning tests for StanMCMCChains-j1.0-v4.0.1:\n")
 
 
 # Run execution_tests only if cmdstan is installed and CMDSTAN_HOME is set correctly.
 execution_tests = [
-  "test_bernoulli.jl"
+  "test_bernoulli.jl",
+  "test_m10.4s.jl",
+  "test_m12.6sl.jl",
+  "test_mcmcchains.jl",
 ]
 
 if CMDSTAN_HOME != ""
   println("CMDSTAN_HOME set. Try to run tests.")
-  @testset "StanMCMCChain.jl" begin
+  @testset "StanMCMCChains.jl" begin
 
     for my_test in execution_tests
         println("\n\n  * $(my_test) *\n")

@@ -30,7 +30,7 @@ Current formats supported are:
 3. :mambachains (Mamba.Chains object)
 4. :mcmcchain (TuringLang/Chains object)
 
-Options 2 through 4 are respectively provided by the packages StanDataFrames, StanMamba and StanMCMCChain.
+Options 2 through 4 are respectively provided by the packages StanDataFrames, StanMamba and StanMCMCChains.
 ```
 
 ### Return values

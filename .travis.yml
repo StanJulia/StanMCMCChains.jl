@@ -21,10 +21,10 @@ notifications:
 script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - cd $HOME; if [[ ! -d cmdstan ]]; then git clone https://github.com/stan-dev/cmdstan.git; fi
-  - cd $HOME/cmdstan; git checkout v2.17.1; make stan-update; make build
+  - cd $HOME/cmdstan; git checkout v2.18.1; make stan-update; make build
   - export JULIA_CMDSTAN_HOME=$HOME/cmdstan
   - cd $TRAVIS_BUILD_DIR
-  - julia -e 'using Pkg; Pkg.test("StanMCMCChain"; coverage=true)'
+  - julia -e 'using Pkg; Pkg.test("StanMCMCChains"; coverage=true)'
 
 branches:
   only:

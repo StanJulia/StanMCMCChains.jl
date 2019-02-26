@@ -1,6 +1,6 @@
 ######### CmdStan program example  ###########
 
-using CmdStan, StanMCMCChain, MCMCChain, Test, JLD, Statistics
+using CmdStan, StanMCMCChains, MCMCChains, Test, JLD, Statistics
 
 ProjDir = dirname(@__FILE__)
 cd(ProjDir) do
@@ -47,7 +47,7 @@ cd(ProjDir) do
   @time d = load(joinpath(ProjDir, "tmp", "chains.jld"))
   println()
 
-  chn2 = MCMCChain.Chains(d["a3d"], names=d["names"])
+  chn2 = MCMCChains.Chains(d["a3d"], names=d["names"])
   
   describe(chn2) 
   

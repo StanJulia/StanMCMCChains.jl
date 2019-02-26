@@ -1,14 +1,14 @@
-# StanMCMCChain
+# StanMCMCChains
 
-[![Build Status](https://travis-ci.org/StanJulia/StanMCMCChain.jl.svg?branch=master)](https://travis-ci.org/StanJulia/StanMCMCChain.jl)
+[![Build Status](https://travis-ci.org/StanJulia/StanMCMCChains.jl.svg?branch=master)](https://travis-ci.org/StanJulia/StanMCMCChains.jl)
 
-[![Coverage Status](https://coveralls.io/repos/StanJulia/StanMCMCChain.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/StanJulia/StanMCMCChain.jl?branch=master)
+[![Coverage Status](https://coveralls.io/repos/StanJulia/StanMCMCChains.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/StanJulia/StanMCMCChains.jl?branch=master)
 
-[![codecov.io](http://codecov.io/github/StanJulia/StanMCMCChain.jl/coverage.svg?branch=master)](http://codecov.io/github/StanJulia/StanMCMCChain.jl?branch=master)
+[![codecov.io](http://codecov.io/github/StanJulia/StanMCMCChains.jl/coverage.svg?branch=master)](http://codecov.io/github/StanJulia/StanMCMCChains.jl?branch=master)
 
 ## Introduction
 
-This package converts the output produced by CmdStan.jl to a TuringLang/Chains object suitable for further processing by the [MCMCChain](https://github.com/TuringLang/MCMCChain.jl) package.
+This package converts the output produced by CmdStan.jl to a TuringLang/Chains object suitable for further processing by the [MCMCChains](https://github.com/TuringLang/MCMCChains.jl) package.
 
 ## Usage
 
@@ -19,7 +19,7 @@ In the definition of the Stanmodel, request the output_format=:mcmcchains:
     model=bernoullimodel, output_format=:mcmcchains);
 ```
 
-The subsequent call to stan() will now return a MCMCChain.Chains object in chains as in the included Bernoulli example:
+The subsequent call to stan() will now return a MCMCChains.Chains object in chains as in the included Bernoulli example:
 
 ```
 ... (snipped)
@@ -48,4 +48,4 @@ The bernoulli example also demonstrated how a Chains object can be saved and res
 
 ## Further examples
 
-Several more examples will be contained in [StanMCMCChainExamples.jl](https://github.com/StanJulia/StanMCMCChainExamples.jl).
+Several more examples will be contained in [StanMCMCChainsExamples.jl](https://github.com/StanJulia/StanMCMCChainsExamples.jl).

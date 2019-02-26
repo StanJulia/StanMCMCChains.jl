@@ -1,8 +1,8 @@
-using StatisticalRethinking, CmdStan, MCMCChains
+using StanModels, CmdStan, MCMCChains
 gr(size=(500,500));
 
-ProjDir = @__DIR__
-cd(ProjDir)
+pdir = @__DIR__
+cd(pdir)
 
 howell1 = CSV.read(rel_path("..", "data", "Howell1.csv"), delim=';')
 df = convert(DataFrame, howell1);
@@ -34,7 +34,7 @@ stanmodel = Stanmodel(name="heights", model=heightsmodel);
 
 heightsdata = Dict("N" => length(df2[:height]), "h" => df2[:height]);
 
-rc, a3d, cnames = stan(stanmodel, heightsdata, ProjDir, diagnostics=false,
+rc, a3d, cnames = stan(stanmodel, heightsdata, pdir, diagnostics=false,
   CmdStanDir=CMDSTAN_HOME);
 
 pi = filter(p -> length(p) > 2 && p[end-1:end] == "__", cnames)

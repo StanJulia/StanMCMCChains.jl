@@ -1,14 +1,14 @@
-using CmdStan, StanMCMCChains, Test, Statistics
+using Test, Statistics
 
-ProjDir = joinpath(dirname(@__FILE__), "..", "examples", "mcmcchains")
-cd(ProjDir) do
+pdir = joinpath(@__DIR__, "..", "examples", "mcmcchains")
+cd(pdir) do
 
   isdir("tmp") && rm("tmp", recursive=true);
-    
-  include("../examples/mcmcchains/mcmcchains.jl")
+  
+  include(joinpath(pdir, "mcmcchains.jl"))
 
   @test 18.0 <  mean(chn.value) < 22.0
-    
+  
   isdir("tmp") && rm("tmp", recursive=true);
 
-end # cd
+end

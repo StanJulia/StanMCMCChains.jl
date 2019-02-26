@@ -6,9 +6,9 @@ println("\nRunning tests for StanMCMCChains-j1.2-v5.0.0:\n")
 
 # Run execution_tests only if cmdstan is installed and CMDSTAN_HOME is set correctly.
 execution_tests = [
+  #"test_mcmcchains.jl",
   "test_m10.4s.jl",
-  "test_m12.6sl.jl",
-  "test_mcmcchains.jl",
+  "test_m12.6sl.jl"
 ]
 
 if CMDSTAN_HOME != ""

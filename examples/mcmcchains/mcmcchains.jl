@@ -30,23 +30,13 @@ model {
 }
 ";
 
-stanmodel = Stanmodel(name="heights", model=heightsmodel);
+stanmodel = Stanmodel(name="heights", model=heightsmodel,
+output_format=:mcmcchains);
 
 heightsdata = Dict("N" => length(df2[:height]), "h" => df2[:height]);
 
-rc, a3d, cnames = stan(stanmodel, heightsdata, pdir, diagnostics=false,
+rc, chn, cnames = stan(stanmodel, heightsdata, pdir, diagnostics=false,
   CmdStanDir=CMDSTAN_HOME);
-
-pi = filter(p -> length(p) > 2 && p[end-1:end] == "__", cnames)
-p = filter(p -> !(p in  pi), cnames)
-
-chn = MCMCChains.Chains(a3d,
-  Symbol.(cnames),
-  Dict(
-    :parameters => Symbol.(p),
-    :internals => Symbol.(pi)
-  )
-)
 
 describe(chn)
 describe(chn, section=:internals)

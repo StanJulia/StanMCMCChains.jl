@@ -28,9 +28,15 @@ Current formats supported are:
 1. :array (a3d_array format, the default for CmdStan)
 2. :dataFrame (DataFrame)
 3. :mambachains (Mamba.Chains object)
-4. :mcmcchain (TuringLang/Chains object)
+4. :mcmcchain (TuringLang/MCMCChain.Chains object)
+5. :mcmcchains (TuringLang/MCMCChains.Chains object)
 
-Options 2 through 4 are respectively provided by the packages StanDataFrames, StanMamba and StanMCMCChains.
+Options 2 through 5 are respectively provided by the packages StanDataFrames, 
+StanMamba, StanMCMCChain and StanMCMCChains.
+
+StanJulia v5.x.x packages will use MCMCChains.jl.
+
+See the examples in `examples/m10.4s` and `examples/m12.6sl` for more examples.
 ```
 
 ### Return values
@@ -38,6 +44,15 @@ Options 2 through 4 are respectively provided by the packages StanDataFrames, St
 * `res`                       : Draws converted to the specified format.
 ```
 """
-function convert_a3d(a3d_array, cnames, ::Val{:mcmcchain})
-  Chains(a3d_array, names=cnames)
+function convert_a3d(a3d_array, cnames, ::Val{:mcmcchains})
+  pi = filter(p -> length(p) > 2 && p[end-1:end] == "__", cnames)
+  p = filter(p -> !(p in  pi), cnames)
+
+  MCMCChains.Chains(a3d,
+    Symbol.(cnames),
+    Dict(
+      :parameters => Symbol.(p),
+      :internals => Symbol.(pi)
+    )
+  )
 end

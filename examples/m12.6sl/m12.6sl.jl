@@ -1,5 +1,5 @@
 
-using StanModels, MCMCChainss
+using StanModels, MCMCChains
 
 ProjDir = rel_path_s("..", "scripts", "12")
 
@@ -12,7 +12,7 @@ d[:society] = 1:10;
 
 first(d, 5)
 
-m12_6_2sl_model = "
+m12_6sl_model = "
   data {
     int N;
     int T[N];
@@ -50,16 +50,16 @@ m12_6_2sl_model = "
 # Define the Stanmodel and set the output format to :mcmcchain.
 
 stanmodel = Stanmodel(name="m12.6.2sl_model",  num_samples=4000, 
-model=m12_6_2sl_model);
+model=m12_6sl_model);
 
 # Input data for cmdstan
 
-m12_6_2_data = Dict("N" => size(d, 1), "T" => d[:total_tools], 
+m12_6sl_data = Dict("N" => size(d, 1), "T" => d[:total_tools], 
 "N_societies" => 10, "society" => d[:society], "P" => d[:population]);
         
 # Sample using cmdstan
 
-rc, a3d, cnames = stan(stanmodel, m12_6_2_data, ProjDir, 
+rc, a3d, cnames = stan(stanmodel, m12_6sl_data, ProjDir, 
 diagnostics=false, summary=false, CmdStanDir=CMDSTAN_HOME);
 
 # Describe the draws
@@ -77,7 +77,7 @@ p = filter(p -> !(p in  pi), cnames1)
 p1 = ["alpha", "bp", "sigma_society"]
 p2 = filter(p -> !(p in p1), p)
 
-m12_6_2s = MCMCChainss.Chains(a3d,
+m12_6sl = MCMCChains.Chains(a3d,
   Symbol.(cnames1),
   Dict(
     :parameters => Symbol.(p1),
@@ -87,12 +87,12 @@ m12_6_2s = MCMCChainss.Chains(a3d,
   )
 )
 
-write(joinpath(ProjDir, "sections_m12_6_2s.jls"), m12_6_2s)
-open(joinpath(ProjDir, "sections_m12_6_2s.txt"), "w") do io
-  describe(io, m12_6_2s, section=:pooled);
+write(joinpath(ProjDir, "sections_m12_6sl.jls"), m12_6sl)
+open(joinpath(ProjDir, "sections_m12_6sl.txt"), "w") do io
+  describe(io, m12_6sl, section=:pooled);
 end
 
-describe(m12_6_2s)
+describe(m12_6sl)
 
-plot(m12_6_2s)
+plot(m12_6sl)
 

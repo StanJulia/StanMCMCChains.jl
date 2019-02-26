@@ -1,6 +1,6 @@
 # Load Julia packages (libraries) needed  for the snippets in chapter 0
 
-using StanModels, MCMCChainss, Test
+using StanModels, MCMCChains, Test
 
 # CmdStan uses a tmp directory to store the output of cmdstan
 
@@ -87,7 +87,7 @@ p = filter(p -> !(p in  pi), cnames1)
 p1 = ["bp", "bpC"]
 p2 = filter(p -> !(p in p1), p)
 
-m10_4s = MCMCChainss.Chains(a3d,
+m10_4s = MCMCChains.Chains(a3d,
   Symbol.(cnames1),
   Dict(
     :parameters => Symbol.(p1),

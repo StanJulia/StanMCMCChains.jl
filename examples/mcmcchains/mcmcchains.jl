@@ -40,7 +40,7 @@ rc, a3d, cnames = stan(stanmodel, heightsdata, ProjDir, diagnostics=false,
 pi = filter(p -> length(p) > 2 && p[end-1:end] == "__", cnames)
 p = filter(p -> !(p in  pi), cnames)
 
-chn = Chains(a3d,
+chn = MCMCChains.Chains(a3d,
   Symbol.(cnames),
   Dict(
     :parameters => Symbol.(p),

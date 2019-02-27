@@ -11,7 +11,9 @@ execution_tests = [
 
 @testset "StanMCMCChains.jl" begin
 
-for my_test in execution_tests
-    println("\n\n  * $(my_test) *\n")
-    include(my_test)
+  for my_test in execution_tests
+      println("\n\n  * $(my_test) *\n")
+      include(my_test)
+  end
+
 end

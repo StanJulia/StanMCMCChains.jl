@@ -1,5 +1,5 @@
 name = "StanMCMCChains"
-uuid = "7c54f3ea-f601-52d0-b368-23ec931b1f8b"
+uuid = "e9003ee5-8d1f-52e9-81b4-38b583c0e573"
 authors = ["StanJulia <goedman@mac.com>"]
 version = "5.0.0"
 

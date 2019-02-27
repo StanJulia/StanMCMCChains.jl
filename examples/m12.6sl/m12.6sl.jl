@@ -1,5 +1,5 @@
 
-using StanModels, MCMCChains
+using StanModels, StanMCMCChains, MCMCChains
 
 ProjDir = rel_path_s("..", "scripts", "12")
 

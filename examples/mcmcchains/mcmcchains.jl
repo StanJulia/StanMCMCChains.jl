@@ -1,4 +1,4 @@
-using StanModels, CmdStan, MCMCChains
+using StanModels, CmdStan, StanMCMCChains, MCMCChains
 gr(size=(500,500));
 
 pdir = @__DIR__

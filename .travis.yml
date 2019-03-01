@@ -24,7 +24,7 @@ script:
   - export JULIA_CMDSTAN_HOME=$HOME/cmdstan
   - cd $TRAVIS_BUILD_DIR
   - julia --project=docs -e 'using Pkg; Pkg.develop(PackageSpec(url="https://github.com/StatisticalRethinkingJulia/MCMCChains.jl"))'
-  - julia -e 'using Pkg; Pkg.test("StanMCMCChains"; coverage=true)'
+  - julia -e 'using Pkg; Pkg.instantiate(); Pkg.test("StanMCMCChains"; coverage=true)'
 
 branches:
   only:

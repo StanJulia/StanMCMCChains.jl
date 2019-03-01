@@ -38,5 +38,7 @@ heightsdata = Dict("N" => length(df2[:height]), "h" => df2[:height]);
 rc, chn, cnames = stan(stanmodel, heightsdata, pdir, diagnostics=false,
   CmdStanDir=CMDSTAN_HOME);
 
+#chn = convert_a3d(a3d, cnames, Val(:mcmcchains))
+  
 describe(chn)
 describe(chn, section=:internals)

@@ -30,12 +30,6 @@ git-tree-sha1 = "99dabbe853e4f641ab21a676131f2cf9fb29937e"
 uuid = "13072b0f-2c55-5437-9ae7-d433b7a33950"
 version = "0.3.0"
 
-[[AxisArrays]]
-deps = ["Compat", "Dates", "IntervalSets", "IterTools", "Random", "RangeArrays", "Test"]
-git-tree-sha1 = "2e2536e9e6f27c4f8d09d8442b61a7ae0b910c28"
-uuid = "39de3d68-74b9-583c-8d2d-e117c070f3a9"
-version = "0.3.0"
-
 [[Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 
@@ -302,18 +296,6 @@ git-tree-sha1 = "e8d1c381b1dc5343e5b6d37265acbe1de493d512"
 uuid = "a98d9a8b-a2ab-59e6-89dd-64a1c18fca59"
 version = "0.11.2"
 
-[[IntervalSets]]
-deps = ["Compat"]
-git-tree-sha1 = "9dc556002f23740de13946e8c2e41798e09a9249"
-uuid = "8197267c-284f-5f27-9208-e0e47529a953"
-version = "0.3.1"
-
-[[IterTools]]
-deps = ["SparseArrays", "Test"]
-git-tree-sha1 = "79246285c43602384e6f1943b3554042a3712056"
-uuid = "c8e1da08-722c-5040-9ed9-7db0dc04731e"
-version = "1.1.1"
-
 [[IterableTables]]
 deps = ["DataValues", "IteratorInterfaceExtensions", "Requires", "TableTraits", "TableTraitsUtils", "Test"]
 git-tree-sha1 = "0eec91e8185899f3926f56db515559bfe95b9db7"
@@ -406,12 +388,10 @@ uuid = "1671dc4f-43c8-512c-ab25-e1704a74065e"
 version = "0.2.3"
 
 [[MCMCChains]]
-deps = ["AxisArrays", "Distributions", "LinearAlgebra", "Pkg", "RecipesBase", "Serialization", "Showoff", "SpecialFunctions", "Statistics", "StatsBase", "Test"]
-git-tree-sha1 = "536d9f5c219f96d8e77004cb59f73a206a92adeb"
-repo-rev = "master"
-repo-url = "https://github.com/TuringLang/MCMCChains.jl"
-uuid = "2f997c57-b70e-5dcb-8cf0-47a5f9a54172"
-version = "0.0.0"
+deps = ["Distributions", "LinearAlgebra", "Pkg", "RecipesBase", "Serialization", "Showoff", "SpecialFunctions", "StatsBase", "Test"]
+git-tree-sha1 = "5db661f28ccfbf7c0844e7cc067cc94161b93ab8"
+uuid = "c7f686f2-ff18-58e9-bc7b-31028e88f75d"
+version = "0.2.4"
 
 [[MacroTools]]
 deps = ["Compat"]
@@ -546,9 +526,9 @@ version = "0.5.5"
 
 [[Plots]]
 deps = ["Base64", "Contour", "Dates", "FixedPointNumbers", "GR", "JSON", "LinearAlgebra", "Measures", "NaNMath", "Pkg", "PlotThemes", "PlotUtils", "Printf", "REPL", "Random", "RecipesBase", "Reexport", "Requires", "Showoff", "SparseArrays", "StaticArrays", "Statistics", "StatsBase", "Test", "UUIDs"]
-git-tree-sha1 = "1c345ad538fa31ea6953d89a9d0cbef21e86a3ed"
+git-tree-sha1 = "c68a9ec8a13a5bdcb85c311378a86b7d7b9b0792"
 uuid = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
-version = "0.23.0"
+version = "0.23.1"
 
 [[Polynomials]]
 deps = ["LinearAlgebra", "SparseArrays", "Test"]
@@ -595,12 +575,6 @@ uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
 [[Random]]
 deps = ["Serialization"]
 uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
-
-[[RangeArrays]]
-deps = ["Compat"]
-git-tree-sha1 = "d925adfd5b01cb46fde89dc9548d167b3b136f4a"
-uuid = "b3c3ace0-ae52-54e7-9d0b-2c1406fd6b9d"
-version = "0.3.1"
 
 [[Ratios]]
 deps = ["Compat"]
@@ -681,9 +655,9 @@ version = "0.1.0"
 
 [[StaticArrays]]
 deps = ["InteractiveUtils", "LinearAlgebra", "Random", "Statistics", "Test"]
-git-tree-sha1 = "1eb114d6e23a817cd3e99abc3226190876d7c898"
+git-tree-sha1 = "3841b39ed5f047db1162627bf5f80a9cd3e39ae2"
 uuid = "90137ffa-7385-5640-81b9-e52037218182"
-version = "0.10.2"
+version = "0.10.3"
 
 [[StatisticalRethinking]]
 deps = ["CSV", "CmdStan", "DataFrames", "DataStructures", "DelimitedFiles", "Distributions", "Flux", "GLM", "GR", "JLD", "LinearAlgebra", "Literate", "MCMCChain", "Optim", "Plots", "RDatasets", "Reexport", "Serialization", "StanMCMCChain", "StatsBase", "StatsFuns", "StatsPlots", "Test"]
@@ -697,9 +671,9 @@ uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 
 [[StatsBase]]
 deps = ["DataStructures", "DelimitedFiles", "LinearAlgebra", "Missings", "Printf", "Random", "SortingAlgorithms", "SparseArrays", "Statistics", "Test"]
-git-tree-sha1 = "7b596062316c7d846b67bf625d5963a832528598"
+git-tree-sha1 = "8f68351fc2600bab59e68406b980b13b2100c472"
 uuid = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
-version = "0.27.0"
+version = "0.28.1"
 
 [[StatsFuns]]
 deps = ["Rmath", "SpecialFunctions", "Test"]
@@ -720,7 +694,7 @@ uuid = "f3b207a7-027a-5e70-b257-86293d7955fd"
 version = "0.10.2"
 
 [[SuiteSparse]]
-deps = ["Libdl", "LinearAlgebra", "Serialization", "SparseArrays"]
+deps = ["Libdl", "LinearAlgebra", "SparseArrays"]
 uuid = "4607b0f0-06f3-5cda-b6b1-a6196a1729e9"
 
 [[TableTraits]]

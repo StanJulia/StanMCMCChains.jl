@@ -6,8 +6,8 @@ os:
   - osx
   
 julia:
-  #- 1.0
-  #- 1.1
+  - 1.0
+  - 1.1
   - nightly
   
 matrix:
@@ -23,7 +23,6 @@ script:
   - cd $HOME/cmdstan; git checkout v2.18.1; make stan-update; make build
   - export JULIA_CMDSTAN_HOME=$HOME/cmdstan
   - cd $TRAVIS_BUILD_DIR
-  - julia -e 'using Pkg; Pkg.develop(PackageSpec(url="https://github.com/StatisticalRethinkingJulia/MCMCChains.jl"))'
   - julia -e 'using Pkg; Pkg.instantiate(); Pkg.test("StanMCMCChains"; coverage=true)'
 
 branches:

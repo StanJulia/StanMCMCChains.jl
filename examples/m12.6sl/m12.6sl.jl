@@ -92,9 +92,7 @@ describe(m12_6sl)
 
 describe(m12_6sl, section=:pooled)
 
-
 describe(m12_6sl, section=:log_lik)
-
 
 plot(m12_6sl)
 

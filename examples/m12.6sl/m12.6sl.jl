@@ -65,12 +65,8 @@ diagnostics=false, summary=false, CmdStanDir=CMDSTAN_HOME);
 # Describe the draws
 
 cnames1 = cnames
-cnames1[9:18] =  ["a_society_01", "a_society_02", "a_society_03",
-"a_society_04", "a_society_05", "a_society_06", "a_society_07",
-"a_society_08", "a_society_09", "a_society_10"]        
-cnames1[21:30] =  ["log_lik_01", "log_lik_02", "log_lik_03", 
-"log_lik_04", "log_lik_05", "log_lik_06", "log_lik_07",
-"log_lik_08", "log_lik_09", "log_lik_10"]        
+cnames1[9:18] =  ["a_society[$i]" for i in 1:10]        
+cnames1[21:30] =  ["log_lik[$i]" for i in 1:10]        
 
 pi = filter(p -> length(p) > 2 && p[end-1:end] == "__", cnames1)
 p = filter(p -> !(p in  pi), cnames1)
@@ -78,12 +74,12 @@ p1 = ["alpha", "bp", "sigma_society"]
 p2 = filter(p -> !(p in p1), p)
 
 m12_6sl = MCMCChains.Chains(a3d,
-  Symbol.(cnames1),
+  cnames1,
   Dict(
-    :parameters => Symbol.(p1),
-    :pooled => Symbol.(cnames1[9:18]),
-    :log_lik => Symbol.(cnames1[21:30]),
-    :internals => Symbol.(pi)
+    :parameters => p1,
+    :pooled => cnames1[9:18],
+    :log_lik => cnames1[21:30],
+    :internals => pi
   )
 )
 
@@ -93,6 +89,12 @@ open(joinpath(ProjDir, "sections_m12_6sl.txt"), "w") do io
 end
 
 describe(m12_6sl)
+
+describe(m12_6sl, section=:pooled)
+
+
+describe(m12_6sl, section=:log_lik)
+
 
 plot(m12_6sl)
 

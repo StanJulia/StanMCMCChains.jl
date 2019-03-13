@@ -80,7 +80,7 @@ bpC -0.13763738 0.30026364 0.0047475851 0.0046440490 1000
 ";
 
 cnames1 = cnames
-cnames1[8:14] =  ["a_1", "a_2", "a_3", "a_4", "a_5", "a_6", "a_7"]        
+cnames1[8:14] =  ["a[$i]" for i in 1:7]        
 
 pi = filter(p -> length(p) > 2 && p[end-1:end] == "__", cnames1)
 p = filter(p -> !(p in  pi), cnames1)
@@ -88,11 +88,11 @@ p1 = ["bp", "bpC"]
 p2 = filter(p -> !(p in p1), p)
 
 m10_4s = MCMCChains.Chains(a3d,
-  Symbol.(cnames1),
+  cnames1,
   Dict(
-    :parameters => Symbol.(p1),
-    :pooled => Symbol.(p2),
-    :internals => Symbol.(pi)
+    :parameters => p1,
+    :pooled => p2,
+    :internals => pi
   )
 )
 

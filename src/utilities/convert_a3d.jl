@@ -7,10 +7,10 @@ function convert_a3d(a3d_array, cnames, ::Val{:mcmcchains})
   p = filter(p -> !(p in  pi), cnames)
 
   MCMCChains.Chains(a3d_array,
-    Symbol.(cnames),
+    cnames,
     Dict(
-      :parameters => Symbol.(p),
-      :internals => Symbol.(pi)
+      :parameters => p,
+      :internals => pi
     )
   )
 end

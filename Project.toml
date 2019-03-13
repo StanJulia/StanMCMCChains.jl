@@ -1,7 +1,7 @@
 name = "StanMCMCChains"
 uuid = "e9003ee5-8d1f-52e9-81b4-38b583c0e573"
 authors = ["StanJulia <goedman@mac.com>"]
-version = "5.0.2"
+version = "5.1.0"
 
 [deps]
 CmdStan = "593b3428-ca2f-500c-ae53-031589ec8ddd"

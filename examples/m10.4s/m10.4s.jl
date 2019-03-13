@@ -102,5 +102,3 @@ open(joinpath(ProjDir, "sections_m10.4s.txt"), "w") do io
 end
 
 describe(m10_4s)
-
-plot(m10_4s)

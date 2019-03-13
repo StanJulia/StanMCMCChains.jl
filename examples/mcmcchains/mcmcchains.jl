@@ -1,10 +1,10 @@
-using StanModels, CmdStan, StanMCMCChains, MCMCChains
+using CSV, DataFrames, CmdStan, StanMCMCChains, MCMCChains
 gr(size=(500,500));
 
 pdir = @__DIR__
 cd(pdir)
 
-howell1 = CSV.read(rel_path("..", "data", "Howell1.csv"), delim=';')
+howell1 = CSV.read("Howell1.csv", delim=';')
 df = convert(DataFrame, howell1);
 
 df2 = filter(row -> row[:age] >= 18, df)

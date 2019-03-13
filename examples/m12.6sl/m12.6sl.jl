@@ -1,9 +1,10 @@
 
-using StanModels, StanMCMCChains, MCMCChains
+using CSV, DataFrames, StanMCMCChains, MCMCChains
 
-ProjDir = rel_path_s("..", "scripts", "12")
+ProjDir = @__DIR__
+cd(ProjDir)
 
-d = CSV.read(rel_path( "..", "data",  "Kline.csv"), delim=';');
+d = CSV.read("Kline.csv", delim=';');
 size(d) # Should be 10x5
 
 # New col log_pop, set log() for population data

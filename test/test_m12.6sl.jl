@@ -7,7 +7,7 @@ cd(pdir) do
   
   include(joinpath(pdir, "m12.6sl.jl"))
 
-  @test 1.5 <  mean(m12_6sl.value)< 2.5
+  @test 1.0 <  mean(m12_6sl[:alpha].value)< 1.2
   
   isdir("tmp") && rm("tmp", recursive=true);
 

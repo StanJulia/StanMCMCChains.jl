@@ -1,7 +1,7 @@
 # Top level test script for Stan.jl
 using StanMCMCChains, Test, Statistics
 
-println("\nRunning tests for StanMCMCChains-j1.2-v5.0.0:\n")
+println("\nRunning tests for StanMCMCChains-j1.2-v5.1.0:\n")
 
 execution_tests = [
   "test_mcmcchains.jl",
